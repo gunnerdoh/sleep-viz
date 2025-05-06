@@ -119,7 +119,6 @@ class SleepSnake {
       this.bpm = parseFloat(row.get('BPM WH')) || 0;
       this.hrv = parseFloat(row.get('HRV (ms) WH')) || 0;
       this.score = parseFloat(row.get('Score WH')) || 0;
-  
       let totalSleep = this.rem + this.deep + this.light;
       this.speed = map(totalSleep, 4, 9, 0.0001, 0.0015);
   
@@ -144,8 +143,10 @@ class SleepSnake {
       for (let i = 0; i < this.trail.length; i++) {
         let p = this.trail[i];
         let lerpAmt = map(i, 0, this.trail.length, 1, 0);
-        stroke(lerpColor(this.baseColor, color(255), lerpAmt), 140);
-        strokeWeight(map(i, 0, this.trail.length, 2, 8));
+        let c = lerpColor(this.baseColor, color(255), lerpAmt);
+        c.setAlpha(255 * 0.6);  // change transparency
+        stroke(c);
+        strokeWeight(map(i, 0, this.trail.length, 2, 8)); // change weight (last #)
         vertex(p.x, p.y, p.z);
       }
       endShape();

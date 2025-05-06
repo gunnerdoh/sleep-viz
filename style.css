@@ -5,6 +5,19 @@ body, html {
     overflow: hidden;
   }
   
-  canvas {
-    display: block;
-  }
+canvas {
+  display: block;
+}
+
+.btn-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-box button {
+  font-family: 'Courier New', monospace;
+  font-size: 12pt;
+  margin: 10px;
+  background: none;
+  color: white;
+}
