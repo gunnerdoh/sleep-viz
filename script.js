@@ -20,20 +20,20 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log('made');
     };
     document.getElementById('large-sleep').onclick = () => {
-      loadNewCSV('data/whoop_large_sleep.csv');
+      loadNewCSV('data/whoop_data.csv');
     };
     document.getElementById('one-sleep').onclick = () => {
-      loadNewCSV('data/whoop_one_sleep.csv');
+      loadNewCSV('data/one_sleep.csv');
     };
   });
 
 function loadNewCSV(path) {
-    loadTable(path, 'csv', 'header', (newTable) => {
-      table = newTable;
-      currentCSV = path;
-      initSnakes();
-    });
-  }
+  console.log("csv made");
+  loadTable(path, 'csv', 'header', (newTable) => {
+    table = newTable;
+    initSnakes();
+  });
+}
 
 
 function initSnakes() {
@@ -64,7 +64,7 @@ function setup() {
 function draw() {
   background(0);
   lights();
-//   console.log('Frame rate:', frameRate());
+  console.log('Frame rate:', frameRate());
 
   // Camera orbit control
   let camX = cameraDistance * Math.cos(rotationY) * Math.cos(rotationX);
